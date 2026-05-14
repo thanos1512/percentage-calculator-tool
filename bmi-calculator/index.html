@@ -1,92 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BMI Calculator</title>
-
-  <style>
-    body {
-      font-family: Arial;
-      text-align: center;
-      background: #f2f2f2;
-      padding: 50px;
-    }
-    <nav>
-  <a href="/">Home</a> |
-  <a href="/age-calculator/">Age Calculator</a> |
-  <a href="/bmi-calculator/">BMI Calculator</a>
-</nav>
-
-    .box {
-      background: white;
-      max-width: 400px;
-      margin: auto;
-      padding: 20px;
-      border-radius: 10px;
-    }
-
-    input {
-      width: 90%;
-      padding: 10px;
-      margin: 10px 0;
-    }
-
-    button {
-      padding: 10px 20px;
-      background: blue;
-      color: white;
-      border: none;
-      border-radius: 5px;
-    }
-
-    #result {
-      margin-top: 15px;
-      font-weight: bold;
-    }
-  </style>
 </head>
-<style>
-  nav {
-    background: #333;
-    padding: 10px;
-    text-align: center;
-  }
 
-  nav a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  nav a:hover {
-    color: yellow;
-  }
-</style>
 <body>
 
-<div class="box">
-  <h1>BMI Calculator</h1>
+<nav>
+  <a href="/">Home</a> |
+  <a href="/age-calculator/">Age</a> |
+  <a href="/bmi-calculator/">BMI</a>
+</nav>
 
-  <input type="number" id="weight" placeholder="Weight in KG">
+<h1>BMI Calculator</h1>
 
-  <input type="number" id="height" placeholder="Height in meters">
+<input type="number" id="w" placeholder="Weight kg">
+<input type="number" id="h" placeholder="Height m">
 
-  <button onclick="calculateBMI()">Calculate BMI</button>
+<button onclick="bmi()">Calculate</button>
 
-  <p id="result"></p>
-</div>
+<p id="result"></p>
 
 <script>
-function calculateBMI() {
-  let weight = document.getElementById("weight").value;
-  let height = document.getElementById("height").value;
-
-  let bmi = weight / (height * height);
-
-  document.getElementById("result").innerText =
-    "Your BMI is " + bmi.toFixed(2);
+function bmi() {
+  let w = document.getElementById("w").value;
+  let h = document.getElementById("h").value;
+  document.getElementById("result").innerText = w / (h * h);
 }
 </script>
 
