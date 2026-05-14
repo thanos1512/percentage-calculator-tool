@@ -1,53 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Percentage Calculator - Calculate Marks Instantly Online</title>
-  <meta name="google-site-verification" content="SlPk_Mgpbf9kXVrn4uJukfaOuIp1jgPNSy7aksvxAlg" />
-  <meta name="description" content="Free online percentage calculator to quickly calculate marks. Simple, fast, and mobile-friendly tool for students." />
-  <link rel="stylesheet" href="style.css" />
+  <title>Percentage Calculator</title>
 </head>
-  <style>
-  nav {
-    background: #333;
-    padding: 10px;
-    text-align: center;
-  }
 
-  nav a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-    font-weight: bold;
-  }
+<body>
 
-  nav a:hover {
-    color: yellow;
-  }
-</style>
-<body> 
-  <nav>
+<nav>
   <a href="/">Home</a> |
-  <a href="/age-calculator/">Age Calculator</a> |
-  <a href="/bmi-calculator/">BMI Calculator</a>
+  <a href="/age-calculator/">Age</a> |
+  <a href="/bmi-calculator/">BMI</a>
 </nav>
- 
 
-  <div class="container">
-    <h1>Percentage Calculator</h1>
+<h1>Percentage Calculator</h1>
 
-    <input type="number" id="obtained" placeholder="Obtained Marks" />
+<input type="number" id="value" placeholder="Value">
+<input type="number" id="percent" placeholder="Percent">
 
-    <input type="number" id="total" placeholder="Total Marks" />
+<button onclick="calc()">Calculate</button>
 
-    <button onclick="calculatePercentage()">
-      Calculate
-    </button>
+<p id="result"></p>
 
-    <h2 id="result"></h2>
-  </div>
+<script>
+function calc() {
+  let v = document.getElementById("value").value;
+  let p = document.getElementById("percent").value;
+  document.getElementById("result").innerText = (v * p) / 100;
+}
+</script>
 
-  <script src="script.js"></script>
 </body>
 </html>
