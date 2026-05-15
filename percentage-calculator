@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Percentage Calculator</title>
+</head>
+
+<body>
+
+<nav>
+  <a href="/">Home</a> |
+  <a href="/age-calculator/">Age</a> |
+  <a href="/bmi-calculator/">BMI</a>
+</nav>
+
+<h1>Percentage Calculator</h1>
+
+<input type="number" id="value" placeholder="Value">
+<input type="number" id="percent" placeholder="Percent">
+
+<button onclick="calc()">Calculate</button>
+
+<p id="result"></p>
+
+<script>
+function calc() {
+  let v = document.getElementById("value").value;
+  let p = document.getElementById("percent").value;
+  document.getElementById("result").innerText = (v * p) / 100;
+}
+</script>
+
+</body>
+</html>
