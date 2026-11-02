@@ -1,5 +1,4 @@
 {
-  "cleanUrls": true,
   "trailingSlash": true,
   "redirects": [
     { "source": "/mainindex.html", "destination": "/", "permanent": true },
@@ -7,6 +6,6 @@
     { "source": "/percentage-calculator.html", "destination": "/percentage-calculator/", "permanent": true }
   ],
   "headers": [
-    { "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] }
+    { "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=86400" }] }
   ]
 }
