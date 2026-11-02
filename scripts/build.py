@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Builds every HTML page of HisaabPK from the content in scripts/pages.py.
+"""Builds every HTML page of PakCalculators from the content in scripts/pages.py.
 
 Run from the repo root:  python3 scripts/build.py
 Change BASE_URL in scripts/pages.py once a custom domain is bought, then rebuild.
@@ -76,7 +76,7 @@ def nav(active):
         f'<a href="{"/" + s + "/" if s else "/"}"{" aria-current=\"page\"" if s == active else ""}>{n}</a>'
         for s, n in links)
     return f"""<header class="site-nav"><div class="wrap">
-<a class="logo" href="/" aria-label="{P.SITE_NAME} home">{LOGO}<span>Hisaab<span class="pk">PK</span></span></a>
+<a class="logo" href="/" aria-label="{P.SITE_NAME} home">{LOGO}<span><span class="pk">Pak</span>Calculators</span></a>
 <nav class="nav-links" aria-label="Main">{items}</nav>
 </div></header>
 """

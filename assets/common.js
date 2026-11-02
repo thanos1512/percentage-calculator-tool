@@ -1,4 +1,4 @@
-/* HisaabPK shared helpers. Works in the browser and in Node (for tests). */
+/* PakCalculators shared helpers. Works in the browser and in Node (for tests). */
 (function (root) {
   "use strict";
 

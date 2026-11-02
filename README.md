@@ -1,4 +1,4 @@
-# HisaabPK
+# PakCalculators
 
 Free calculators for everyday sums in Pakistan: salary tax (2026-27 slabs), electricity bills, zakat, government job age with FPSC/PPSC relaxation, marks percentage, CGPA and exact age.
 

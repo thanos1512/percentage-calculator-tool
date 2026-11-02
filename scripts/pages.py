@@ -1,7 +1,7 @@
-"""All page content for HisaabPK. Edit text here, then run: python3 scripts/build.py"""
+"""All page content for PakCalculators. Edit text here, then run: python3 scripts/build.py"""
 
-SITE_NAME = "HisaabPK"
-BASE_URL = "https://hisaabpk.vercel.app"   # change to the custom domain once bought
+SITE_NAME = "PakCalculators"
+BASE_URL = "https://pakcalculators.vercel.app"   # change to the custom domain once bought
 EMAIL = "businessfor1512@gmail.com"
 CHECKED = "2 November 2026"
 CHECKED_ISO = "2026-11-02"
@@ -491,7 +491,7 @@ TOOLS = [SALARY, GOVT_AGE, ELECTRICITY, ZAKAT, PERCENTAGE, CGPA, AGE]
 # ---------------------------------------------------------------- Home
 HOME = {
     "slug": "",
-    "title": "HisaabPK: Free Salary Tax, Bill, Zakat & Age Calculators for Pakistan",
+    "title": "PakCalculators: Free Tax, Electricity Bill, Zakat & Age Calculators Pakistan",
     "description": "Free calculators for everyday sums in Pakistan: salary tax under the 2026-27 slabs, electricity bills, zakat, government job age limits, marks percentage and CGPA.",
     "h1": "Everyday sums for Pakistan, worked out",
     "lede": "Salary tax, electricity bills, zakat, job age limits and exam marks. Each calculator uses the current rules and shows every step, so you can check it yourself.",
@@ -505,10 +505,10 @@ HOME = {
 # ---------------------------------------------------------------- Info pages
 INFO = [
     {
-        "slug": "about", "title": "About HisaabPK", "h1": "About HisaabPK",
-        "description": "Who makes HisaabPK, where the figures come from, and how the calculators are checked.",
+        "slug": "about", "title": "About PakCalculators", "h1": "About PakCalculators",
+        "description": "Who makes PakCalculators, where the figures come from, and how the calculators are checked.",
         "body": """
-<p>HisaabPK is a set of free calculators for everyday money and paperwork questions in Pakistan. <em>Hisaab</em> means working out the sums, and that is all this site does: it takes the rules that affect you, like tax slabs, electricity tariffs and age limits, and applies them to your numbers.</p>
+<p>PakCalculators is a set of free calculators for everyday money and paperwork questions in Pakistan. It takes the rules that affect you, like tax slabs, electricity tariffs and age limits, and applies them to your numbers.</p>
 <h2>Where the figures come from</h2>
 <p>Every calculator is based on official rules: the Finance Act and FBR for income tax, NEPRA's notified tariff for electricity, FPSC and PPSC instructions for age limits, and IBCC and university rules for grades. Each page shows when its figures were last checked and links to its sources. When a budget or tariff changes, the pages are updated.</p>
 <h2>How the calculators are checked</h2>
@@ -519,18 +519,18 @@ INFO = [
 """,
     },
     {
-        "slug": "contact", "title": "Contact HisaabPK", "h1": "Contact",
-        "description": "Report a mistake, suggest a calculator, or ask a question about HisaabPK.",
+        "slug": "contact", "title": "Contact PakCalculators", "h1": "Contact",
+        "description": "Report a mistake, suggest a calculator, or ask a question about PakCalculators.",
         "body": f"""
 <p>If a figure looks wrong, a rule has changed, or there is a calculator you would like to see, email:</p>
 <p><a href="mailto:{EMAIL}" style="font-size:1.2rem;font-weight:600">{EMAIL}</a></p>
 <p>When reporting a mistake, include the page, the numbers you entered, and the result you expected. Replies usually take a few days.</p>
-<p>HisaabPK cannot give personal tax, legal or religious advice. For those, please contact FBR, a tax adviser, the relevant commission, or a scholar.</p>
+<p>PakCalculators cannot give personal tax, legal or religious advice. For those, please contact FBR, a tax adviser, the relevant commission, or a scholar.</p>
 """,
     },
     {
-        "slug": "privacy-policy", "title": "Privacy Policy | HisaabPK", "h1": "Privacy policy",
-        "description": "How HisaabPK handles your information, cookies and advertising.",
+        "slug": "privacy-policy", "title": "Privacy Policy | PakCalculators", "h1": "Privacy policy",
+        "description": "How PakCalculators handles your information, cookies and advertising.",
         "body": f"""
 <p>Last updated: {CHECKED}</p>
 <h2>What you type into the calculators</h2>
@@ -549,8 +549,8 @@ INFO = [
 """,
     },
     {
-        "slug": "terms", "title": "Terms and Disclaimer | HisaabPK", "h1": "Terms and disclaimer",
-        "description": "Terms of use and the disclaimer for HisaabPK's calculators.",
+        "slug": "terms", "title": "Terms and Disclaimer | PakCalculators", "h1": "Terms and disclaimer",
+        "description": "Terms of use and the disclaimer for PakCalculators's calculators.",
         "body": f"""
 <p>Last updated: {CHECKED}</p>
 <h2>Estimates, not advice</h2>
