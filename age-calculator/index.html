@@ -1,32 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Age Calculator</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Age Calculator: Exact Age in Years, Months and Days</title>
+<meta name="description" content="Find your exact age in years, months and days from your date of birth, plus total days, weeks and the countdown to your next birthday.">
+<link rel="canonical" href="https://hisaabpk.vercel.app/age-calculator/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#f7f9f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101814" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HisaabPK">
+<meta property="og:title" content="Age Calculator: Exact Age in Years, Months and Days">
+<meta property="og:description" content="Find your exact age in years, months and days from your date of birth, plus total days, weeks and the countdown to your next birthday.">
+<meta property="og:url" content="https://hisaabpk.vercel.app/age-calculator/">
+<meta property="og:locale" content="en_PK">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="/assets/style.css?v=1">
+<script>try{var t=localStorage.getItem('hpk-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Age calculator", "url": "https://hisaabpk.vercel.app/age-calculator/", "description": "Find your exact age in years, months and days from your date of birth, plus total days, weeks and the countdown to your next birthday.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "en-PK", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "PKR"}, "dateModified": "2026-11-02"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://hisaabpk.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Age", "item": "https://hisaabpk.vercel.app/age-calculator/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I calculate my age from my date of birth?", "acceptedAnswer": {"@type": "Answer", "text": "Subtract your birth year from the current year, then take one off if your birthday has not come yet this year. For months and days, count whole months since your last birthday and the days left over. The calculator does all of this for you."}}, {"@type": "Question", "name": "What day of the week was I born?", "acceptedAnswer": {"@type": "Answer", "text": "Enter your date of birth and the result shows the weekday you were born on."}}, {"@type": "Question", "name": "Can I check my age on a past or future date?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Change the \"Age on this date\" field to any date."}}]}]}</script>
 </head>
-
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-nav"><div class="wrap">
+<a class="logo" href="/" aria-label="HisaabPK home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="3" width="22" height="26" rx="2" fill="var(--green)"/><path d="M5 26l3 3 3-3 3 3 3-3 3 3 3-3 3 3 2-2v3H5z" fill="var(--paper)"/><rect x="9" y="9" width="14" height="2" rx="1" fill="#fff" opacity=".75"/><rect x="9" y="14" width="10" height="2" rx="1" fill="#fff" opacity=".75"/><rect x="9" y="19" width="14" height="3" rx="1" fill="var(--marigold)"/></svg><span>Hisaab<span class="pk">PK</span></span></a>
+<nav class="nav-links" aria-label="Main"><a href="/">All calculators</a><a href="/about/">About</a><a href="/contact/">Contact</a></nav>
+</div></header>
+<main id="main" class="page"><div class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <span aria-current="page">Age</span></nav>
+<header class="tool-head">
+<h1>Age calculator</h1>
+<p class="lede">Enter your date of birth to see your exact age in years, months and days, the day of the week you were born, and how long until your next birthday.</p>
+<p class="checked">Updated 2 November 2026</p>
+</header>
+<div class="calc">
+<form id="calc-form" class="panel" novalidate autocomplete="off">
+<div class="row2"><div class="field"><label for="dob">Date of birth</label><input id="dob" type="date"></div><div class="field"><label for="on">Age on this date</label><input id="on" type="date"><span class="hint">Today, unless you change it.</span></div></div>
+</form>
+<aside class="slip" id="result" aria-live="polite"><p class="slip-title">Result</p><p class="empty">Loading the calculator…</p></aside>
+</div>
+<div class="article">
 
-<nav>
-  <a href="/">Home</a> |
-  <a href="/age-calculator/">Age</a> |
-  <a href="/bmi-calculator/">BMI</a>
-</nav>
+<h2>How exact age is worked out</h2>
+<p>The calculator counts whole years since your date of birth, then whole months after your last birthday, then the days left over. When the day of the month in your birth date is later than today's, it borrows the days of the previous month, which is how ages are counted on official forms.</p>
+<div class="example"><p><strong>Example.</strong> Someone born on 15 August 2000 is 26 years, 2 months and 18 days old on 2 November 2026.</p></div>
+<p>If you were born on 29 February, your birthday is taken as 28 February in years that are not leap years.</p>
+<h2>Checking your age for a job advert</h2>
+<p>Government job adverts count your age on the closing date and often allow age relaxation. Use the <a href="/govt-job-age-calculator/">government job age calculator</a> to check eligibility with FPSC or PPSC relaxation added.</p>
 
-<h1>Age Calculator</h1>
-
-<input type="date" id="dob">
-<button onclick="age()">Calculate</button>
-
-<p id="result"></p>
-
-<script>
-function age() {
-  let dob = new Date(document.getElementById("dob").value);
-  let today = new Date();
-  let a = today.getFullYear() - dob.getFullYear();
-  document.getElementById("result").innerText = a;
-}
-</script>
-
+<h2 id="faq">Questions people ask</h2>
+<details><summary>How do I calculate my age from my date of birth?</summary><div><p>Subtract your birth year from the current year, then take one off if your birthday has not come yet this year. For months and days, count whole months since your last birthday and the days left over. The calculator does all of this for you.</p></div></details>
+<details><summary>What day of the week was I born?</summary><div><p>Enter your date of birth and the result shows the weekday you were born on.</p></div></details>
+<details><summary>Can I check my age on a past or future date?</summary><div><p>Yes. Change the "Age on this date" field to any date.</p></div></details>
+<h2>Sources</h2>
+<p class="sources">Calendar calculation; no external data is used.</p>
+</div>
+<section class="related article"><h2 style="margin-top:0">More calculators</h2><ul><li><a href="/salary-tax-calculator/">Salary tax</a>: How much income tax comes out of my salary each month?</li><li><a href="/govt-job-age-calculator/">Govt job age</a>: Am I within the age limit for this FPSC or PPSC post?</li><li><a href="/electricity-bill-calculator/">Electricity bill</a>: What will my bill be for the units I used?</li><li><a href="/zakat-calculator/">Zakat</a>: How much zakat do I owe on my savings, gold and silver?</li></ul></section>
+</div></main>
+<footer class="site-foot"><div class="wrap">
+<nav aria-label="Calculators"><a href="/salary-tax-calculator/">Salary tax</a><a href="/govt-job-age-calculator/">Govt job age</a><a href="/electricity-bill-calculator/">Electricity bill</a><a href="/zakat-calculator/">Zakat</a><a href="/percentage-calculator/">Marks percentage</a><a href="/cgpa-calculator/">GPA and CGPA</a><a href="/age-calculator/">Age</a></nav>
+<nav aria-label="Site"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy-policy/">Privacy policy</a><a href="/terms/">Terms and disclaimer</a></nav>
+<p style="margin:0;flex-basis:100%;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap"><span>© 2026 HisaabPK. Free calculators for Pakistan. Figures are estimates; check official sources for decisions.</span><button type="button" class="theme-toggle" id="theme-toggle">Dark mode</button></p>
+</div></footer>
+<script src="/assets/common.js?v=1" defer></script><script src="/assets/tools/age-core.js?v=1" defer></script><script src="/assets/tools/age.js?v=1" defer></script>
 </body>
 </html>

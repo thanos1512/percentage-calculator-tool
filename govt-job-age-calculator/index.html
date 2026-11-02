@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Age Calculator for Govt Jobs with FPSC &amp; PPSC Age Relaxation</title>
+<meta name="description" content="Check your exact age on a job advert&#x27;s closing date and whether you are within the limit after FPSC or PPSC age relaxation. Shows the last date you stay eligible.">
+<link rel="canonical" href="https://hisaabpk.vercel.app/govt-job-age-calculator/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#f7f9f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101814" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HisaabPK">
+<meta property="og:title" content="Age Calculator for Govt Jobs with FPSC &amp; PPSC Age Relaxation">
+<meta property="og:description" content="Check your exact age on a job advert&#x27;s closing date and whether you are within the limit after FPSC or PPSC age relaxation. Shows the last date you stay eligible.">
+<meta property="og:url" content="https://hisaabpk.vercel.app/govt-job-age-calculator/">
+<meta property="og:locale" content="en_PK">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="/assets/style.css?v=1">
+<script>try{var t=localStorage.getItem('hpk-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Government job age calculator", "url": "https://hisaabpk.vercel.app/govt-job-age-calculator/", "description": "Check your exact age on a job advert's closing date and whether you are within the limit after FPSC or PPSC age relaxation. Shows the last date you stay eligible.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "en-PK", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "PKR"}, "dateModified": "2026-11-02"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://hisaabpk.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Govt job age", "item": "https://hisaabpk.vercel.app/govt-job-age-calculator/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is age counted on the closing date or the test date?", "acceptedAnswer": {"@type": "Answer", "text": "On the closing date of the advertisement for FPSC and PPSC posts. Competitive exams like CSS and PMS use a fixed cut-off date stated in the exam notice."}}, {"@type": "Question", "name": "If the upper age limit is 30, can I apply at 30 years and 6 months?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. You stay within a 30-year limit until you complete 31 years. The calculator shows the exact last closing date you can apply for."}}, {"@type": "Question", "name": "Can I combine two FPSC age relaxations?", "acceptedAnswer": {"@type": "Answer", "text": "You can combine the 5-year general relaxation with one other category. If you qualify for two other categories, such as government service and AJK domicile, you get the larger one only."}}, {"@type": "Question", "name": "Does the general age relaxation apply to CSS?", "acceptedAnswer": {"@type": "Answer", "text": "CSS has its own age rules in the annual CSS notice, so check that notice rather than the general recruitment rules."}}, {"@type": "Question", "name": "Which date of birth is used?", "acceptedAnswer": {"@type": "Answer", "text": "The one on your matriculation (SSC) or O-Level certificate. If that certificate has no date of birth, commissions accept a school leaving certificate with a birth certificate or CNIC."}}, {"@type": "Question", "name": "I'm a government employee. How much relaxation do I get from FPSC?", "acceptedAnswer": {"@type": "Answer", "text": "Up to 10 years, as long as your total age stays at or below 55 and you have 2 years of continuous government service on the closing date. The 5-year general relaxation is added on top, still within the 55 cap."}}]}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-nav"><div class="wrap">
+<a class="logo" href="/" aria-label="HisaabPK home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="3" width="22" height="26" rx="2" fill="var(--green)"/><path d="M5 26l3 3 3-3 3 3 3-3 3 3 3-3 3 3 2-2v3H5z" fill="var(--paper)"/><rect x="9" y="9" width="14" height="2" rx="1" fill="#fff" opacity=".75"/><rect x="9" y="14" width="10" height="2" rx="1" fill="#fff" opacity=".75"/><rect x="9" y="19" width="14" height="3" rx="1" fill="var(--marigold)"/></svg><span>Hisaab<span class="pk">PK</span></span></a>
+<nav class="nav-links" aria-label="Main"><a href="/">All calculators</a><a href="/about/">About</a><a href="/contact/">Contact</a></nav>
+</div></header>
+<main id="main" class="page"><div class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <span aria-current="page">Govt job age</span></nav>
+<header class="tool-head">
+<h1>Government job age calculator</h1>
+<p class="lede">Find your exact age on the closing date of a job advert, add the age relaxation you qualify for, and see straight away whether you can apply.</p>
+<p class="checked">Rules checked 2 November 2026</p>
+</header>
+<div class="calc">
+<form id="calc-form" class="panel" novalidate autocomplete="off">
+<div class="row2"><div class="field"><label for="dob">Date of birth</label><input id="dob" type="date"><span class="hint">As written on your matric certificate.</span></div><div class="field"><label for="closing">Last date to apply</label><input id="closing" type="date"><span class="hint">The closing date in the advert.</span></div></div><div class="row2"><div class="field"><label for="min-age">Minimum age in the advert</label><input id="min-age" type="number" inputmode="decimal" step="1" min="0" value="18" placeholder=""></div><div class="field"><label for="max-age">Maximum age in the advert</label><input id="max-age" type="number" inputmode="decimal" step="1" min="0" value="25" placeholder=""><span class="hint">Before any relaxation.</span></div></div><div class="field"><span class="label" id="commission-l">Who is recruiting?</span><div class="seg" role="radiogroup" aria-labelledby="commission-l"><label><input type="radio" name="commission" value="fpsc" checked><span>FPSC / federal</span></label><label><input type="radio" name="commission" value="ppsc"><span>PPSC / Punjab</span></label><label><input type="radio" name="commission" value="other"><span>Other</span></label></div></div><div id="fpsc-opts">
+<label class="check"><input type="checkbox" id="general" checked><span>Add the 5-year general relaxation <span class="hint">FPSC adds this on top of one other category.</span></span></label>
+<div class="field"><label for="category">Other relaxation you qualify for</label>
+<select id="category">
+<option value="none">None</option>
+<option value="area">AJK, Gilgit-Baltistan, tribal areas, Scheduled Caste or Buddhist (3 years)</option>
+<option value="govt">Government servant with 2+ years service (10 years, up to 55)</option>
+<option value="armed">Retired or released armed forces (years served, up to 15)</option>
+<option value="deceased">Widow or child of a federal employee who died in service (5 years)</option>
+</select></div>
+<div id="served-field" hidden><div class="field"><label for="served">Years served in the armed forces</label><input id="served" type="number" inputmode="decimal" step="1" min="0" value="0" placeholder=""></div></div>
+</div>
+<div id="ppsc-opts" hidden>
+<label class="check"><input type="checkbox" id="general-p" checked><span>Add the PPSC general relaxation <span class="hint">5 years for men, 8 years for women, unless the advert says otherwise.</span></span></label>
+<div class="field"><span class="label" id="gender-l">You are</span><div class="seg" role="radiogroup" aria-labelledby="gender-l"><label><input type="radio" name="gender" value="m" checked><span>Male</span></label><label><input type="radio" name="gender" value="f"><span>Female</span></label></div></div><div class="field"><label for="pb-service">Punjab government service to exclude (years)</label><input id="pb-service" type="number" inputmode="decimal" step="0.5" min="0" value="0" placeholder=""><span class="hint">Regular or contract service with the Punjab government is not counted in your age.</span></div>
+</div>
+<div id="other-opts" hidden><div class="field"><label for="custom-relax">Relaxation stated in the advert (years)</label><input id="custom-relax" type="number" inputmode="decimal" step="1" min="0" value="0" placeholder=""><span class="hint">Add any relaxation the advert gives you.</span></div></div>
+<label class="check"><input type="checkbox" id="inclusive"><span>Count the closing date as a full day <span class="hint">PPSC adds one day when it counts age. Switches on automatically for PPSC.</span></span></label>
+
+</form>
+<aside class="slip" id="result" aria-live="polite"><p class="slip-title">Result</p><p class="empty">Loading the calculator…</p></aside>
+</div>
+<div class="article">
+
+<h2>How age is counted for government jobs</h2>
+<p>Both FPSC and PPSC count your age on the <strong>closing date</strong> of the advertisement, not the date you apply or the test date. Your date of birth is taken from your matriculation certificate or its equivalent. For competitive exams such as CSS and PMS, the commission sets a fixed cut-off date in the exam notice instead.</p>
+<p>An upper age limit of 30 years means you can apply until you complete 31 years. Someone aged 30 years, 11 months and 20 days is still within a 30-year limit. The calculator shows the exact last closing date you remain eligible for.</p>
+<p>PPSC adds one day when it counts age. Its own example: a candidate born on 15 August 1970 was 27 years, 5 months and 24 days old on a closing date of 7 February 1998. Tick "Count the closing date as a full day" to use this method. It only matters if you are within a day or two of a limit.</p>
+
+<h2>FPSC age relaxation</h2>
+<p>FPSC applies the Initial Appointment to Civil Posts (Relaxation of Upper Age Limit) Rules, 1993. You can claim <strong>one</strong> of the categories below, plus the 5-year general relaxation on top.</p>
+<div class="table-wrap"><table><thead><tr><th>Category</th><th class=n>Extra years</th></tr></thead><tbody><tr><td>General relaxation, for everyone</td><td class=n>5</td></tr><tr><td>Permanent residents of AJK or Gilgit-Baltistan, recognised tribes of tribal areas, Scheduled Castes and the Buddhist community</td><td class=n>3</td></tr><tr><td>Government servants, including contract employees, with 2 years of continuous service on the closing date</td><td class=n>10, up to a maximum age of 55</td></tr><tr><td>Retired or released armed forces officers and personnel</td><td class=n>Years actually served, up to 15</td></tr><tr><td>Widow, son or daughter of a federal civil servant who died in service</td><td class=n>5</td></tr></tbody></table></div>
+<p>Employees of nationalised banks, the State Bank, WAPDA and other autonomous or semi-government bodies do not count as government servants for this relaxation. You need proof of the category you claim, such as a departmental permission certificate or a domicile-based certificate.</p>
+<div class="example"><p><strong>Example.</strong> An advert for a BS-16 post sets the age limit at 18 to 25 and closes on 20 November 2026. A candidate born on 10 March 1996 is 30 years, 8 months and 10 days old that day. With the 5-year general relaxation the limit becomes 30, so they can apply. They stay eligible for adverts closing up to 9 March 2027, the day before their 31st birthday.</p></div>
+
+<h2>PPSC age relaxation</h2>
+<p>PPSC's own guidance gives a general relaxation of 5 years for men and 8 years for women for posts where the candidate meets the other requirements. Time spent in regular or contract service with the Punjab government is also left out when counting age, but the total cannot go above 35 for Combined Competitive Examination posts. Relaxation for federal or autonomous-body employees applies only if the advert says so.</p>
+<p>Punjab sometimes grants one-off relaxations too. For example, it allowed PMS candidates up to age 32 for the 2026 and 2027 exams. Always read the advert for the post you are applying to.</p>
+
+<h2>Other commissions and departments</h2>
+<p>KPPSC, SPSC, BPSC, AJK PSC and departments that recruit directly (FIA, police, WAPDA and others) publish their own limits and relaxations in each advert. Choose "Other" and enter the relaxation the advert gives you.</p>
+
+<h2 id="faq">Questions people ask</h2>
+<details><summary>Is age counted on the closing date or the test date?</summary><div><p>On the closing date of the advertisement for FPSC and PPSC posts. Competitive exams like CSS and PMS use a fixed cut-off date stated in the exam notice.</p></div></details>
+<details><summary>If the upper age limit is 30, can I apply at 30 years and 6 months?</summary><div><p>Yes. You stay within a 30-year limit until you complete 31 years. The calculator shows the exact last closing date you can apply for.</p></div></details>
+<details><summary>Can I combine two FPSC age relaxations?</summary><div><p>You can combine the 5-year general relaxation with one other category. If you qualify for two other categories, such as government service and AJK domicile, you get the larger one only.</p></div></details>
+<details><summary>Does the general age relaxation apply to CSS?</summary><div><p>CSS has its own age rules in the annual CSS notice, so check that notice rather than the general recruitment rules.</p></div></details>
+<details><summary>Which date of birth is used?</summary><div><p>The one on your matriculation (SSC) or O-Level certificate. If that certificate has no date of birth, commissions accept a school leaving certificate with a birth certificate or CNIC.</p></div></details>
+<details><summary>I'm a government employee. How much relaxation do I get from FPSC?</summary><div><p>Up to 10 years, as long as your total age stays at or below 55 and you have 2 years of continuous government service on the closing date. The 5-year general relaxation is added on top, still within the 55 cap.</p></div></details>
+<h2>Sources</h2>
+<p class="sources">FPSC <a href="https://fpsc.gov.pk/uploads/content/1785140430996_Instructions_to_the_candidates_-_updated_on_23.7.2026.pdf" rel="nofollow">Instructions to the candidates</a> (updated 23 July 2026); PPSC <a href="https://ppsc.gop.pk/" rel="nofollow">frequently asked questions</a>; Punjab PMS relaxation as reported by <a href="https://www.ilmkidunya.com/edunews/punjab-announces-major-age-relief-for-pms-candidates" rel="nofollow">Ilmkidunya</a> (August 2026).</p>
+</div>
+<section class="related article"><h2 style="margin-top:0">More calculators</h2><ul><li><a href="/salary-tax-calculator/">Salary tax</a>: How much income tax comes out of my salary each month?</li><li><a href="/electricity-bill-calculator/">Electricity bill</a>: What will my bill be for the units I used?</li><li><a href="/zakat-calculator/">Zakat</a>: How much zakat do I owe on my savings, gold and silver?</li><li><a href="/percentage-calculator/">Marks percentage</a>: What percentage and grade did I get in my exam?</li></ul></section>
+</div></main>
+<footer class="site-foot"><div class="wrap">
+<nav aria-label="Calculators"><a href="/salary-tax-calculator/">Salary tax</a><a href="/govt-job-age-calculator/">Govt job age</a><a href="/electricity-bill-calculator/">Electricity bill</a><a href="/zakat-calculator/">Zakat</a><a href="/percentage-calculator/">Marks percentage</a><a href="/cgpa-calculator/">GPA and CGPA</a><a href="/age-calculator/">Age</a></nav>
+<nav aria-label="Site"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy-policy/">Privacy policy</a><a href="/terms/">Terms and disclaimer</a></nav>
+<p style="margin:0;flex-basis:100%;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap"><span>© 2026 HisaabPK. Free calculators for Pakistan. Figures are estimates; check official sources for decisions.</span><button type="button" class="theme-toggle" id="theme-toggle">Dark mode</button></p>
+</div></footer>
+<script src="/assets/common.js?v=1" defer></script><script src="/assets/tools/age-core.js?v=1" defer></script><script src="/assets/tools/govt-age.js?v=1" defer></script>
+</body>
+</html>
