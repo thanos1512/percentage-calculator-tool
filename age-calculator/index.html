@@ -7,8 +7,8 @@
 <meta name="description" content="Find your exact age in years, months and days from your date of birth, plus total days, weeks and the countdown to your next birthday.">
 <link rel="canonical" href="https://pakcalculators.vercel.app/age-calculator/">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#f7f9f6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#101814" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16221c" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PakCalculators">
 <meta property="og:title" content="Age Calculator: Exact Age in Years, Months and Days">
@@ -19,30 +19,35 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap">
-<link rel="stylesheet" href="/assets/style.css?v=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/assets/style.css?v=2">
 <script>try{var t=localStorage.getItem('hpk-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Age calculator", "url": "https://pakcalculators.vercel.app/age-calculator/", "description": "Find your exact age in years, months and days from your date of birth, plus total days, weeks and the countdown to your next birthday.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "en-PK", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "PKR"}, "dateModified": "2026-11-02"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://pakcalculators.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Age", "item": "https://pakcalculators.vercel.app/age-calculator/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I calculate my age from my date of birth?", "acceptedAnswer": {"@type": "Answer", "text": "Subtract your birth year from the current year, then take one off if your birthday has not come yet this year. For months and days, count whole months since your last birthday and the days left over. The calculator does all of this for you."}}, {"@type": "Question", "name": "What day of the week was I born?", "acceptedAnswer": {"@type": "Answer", "text": "Enter your date of birth and the result shows the weekday you were born on."}}, {"@type": "Question", "name": "Can I check my age on a past or future date?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Change the \"Age on this date\" field to any date."}}]}]}</script>
 </head>
-<body>
+<body data-tool="age">
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-nav"><div class="wrap">
-<a class="logo" href="/" aria-label="PakCalculators home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="3" width="22" height="26" rx="2" fill="var(--green)"/><path d="M5 26l3 3 3-3 3 3 3-3 3 3 3-3 3 3 2-2v3H5z" fill="var(--paper)"/><rect x="9" y="9" width="14" height="2" rx="1" fill="#fff" opacity=".75"/><rect x="9" y="14" width="10" height="2" rx="1" fill="#fff" opacity=".75"/><rect x="9" y="19" width="14" height="3" rx="1" fill="var(--marigold)"/></svg><span><span class="pk">Pak</span>Calculators</span></a>
-<nav class="nav-links" aria-label="Main"><a href="/">All calculators</a><a href="/about/">About</a><a href="/contact/">Contact</a></nav>
-</div></header>
-<main id="main" class="page"><div class="wrap">
+<header class="site-nav"><div class="wrap bar">
+<a class="logo" href="/" aria-label="PakCalculators home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="2" width="26" height="28" rx="7" fill="#0e7a55"/><rect x="7.5" y="6.5" width="17" height="6.5" rx="2" fill="#fff"/><circle cx="10.5" cy="18.5" r="2" fill="#fff" opacity=".85"/><circle cx="16" cy="18.5" r="2" fill="#fff" opacity=".85"/><circle cx="21.5" cy="18.5" r="2" fill="#f5b82e"/><circle cx="10.5" cy="24" r="2" fill="#fff" opacity=".85"/><circle cx="16" cy="24" r="2" fill="#fff" opacity=".85"/><circle cx="21.5" cy="24" r="2" fill="#fff" opacity=".85"/></svg><span><span class="pk">Pak</span>Calculators</span></a>
+<nav class="nav-links" aria-label="Main"><a href="/" class="">Calculators</a><a href="/about/" class="hide-s">About</a><a href="/contact/" class="hide-xs">Contact</a></nav>
+</div><nav class="chips" aria-label="Calculators"><div class="wrap"><a class="chip" data-tool="tax" href="/salary-tax-calculator/"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9.5 14.5l5-5"/><circle cx="9.5" cy="9.5" r=".9"/><circle cx="14.5" cy="14.5" r=".9"/></svg>Salary tax</a><a class="chip" data-tool="age-job" href="/govt-job-age-calculator/"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="11" r="2.2"/><path d="M5.8 16.5c.6-1.5 1.8-2.3 3.2-2.3s2.6.8 3.2 2.3"/><path d="M14.5 10h4M14.5 13.5h3"/></svg>Govt job age</a><a class="chip" data-tool="power" href="/electricity-bill-calculator/"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2.5L4.5 13.5H11l-1 8 8.5-11H12z"/></svg>Electricity bill</a><a class="chip" data-tool="zakat" href="/zakat-calculator/"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="2.8"/><path d="M5 6v6c0 1.6 3.1 2.8 7 2.8s7-1.2 7-2.8V6"/><path d="M5 12v6c0 1.6 3.1 2.8 7 2.8s7-1.2 7-2.8v-6"/></svg>Zakat</a><a class="chip" data-tool="marks" href="/percentage-calculator/"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.5 5.5l-13 13"/><circle cx="7" cy="7" r="2.6"/><circle cx="17" cy="17" r="2.6"/></svg>Marks percentage</a><a class="chip" data-tool="gpa" href="/cgpa-calculator/"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 9L12 4.5 21.5 9 12 13.5z"/><path d="M6.5 11v4.8c0 1.4 2.5 2.9 5.5 2.9s5.5-1.5 5.5-2.9V11"/><path d="M21.5 9v5"/></svg>GPA and CGPA</a><a class="chip" data-tool="age" href="/age-calculator/" aria-current="page"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 21h17"/><rect x="5" y="12" width="14" height="9" rx="1.8"/><path d="M5 16c1.2.9 2.3.9 3.5 0s2.3-.9 3.5 0 2.3.9 3.5 0 2.3-.9 3.5 0"/><path d="M12 12V8.5"/><path d="M12 6c.9-.8.9-1.8 0-2.8-.9 1-.9 2 0 2.8z"/></svg>Age</a></div></nav></header>
+<main id="main" class="page">
+<div class="tool-band"><div class="wrap">
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <span aria-current="page">Age</span></nav>
 <header class="tool-head">
+<span class="badge"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 21h17"/><rect x="5" y="12" width="14" height="9" rx="1.8"/><path d="M5 16c1.2.9 2.3.9 3.5 0s2.3-.9 3.5 0 2.3.9 3.5 0 2.3-.9 3.5 0"/><path d="M12 12V8.5"/><path d="M12 6c.9-.8.9-1.8 0-2.8-.9 1-.9 2 0 2.8z"/></svg></span>
 <h1>Age calculator</h1>
 <p class="lede">Enter your date of birth to see your exact age in years, months and days, the day of the week you were born, and how long until your next birthday.</p>
-<p class="checked">Updated 2 November 2026</p>
+<p class="checked"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Updated 2 November 2026</p>
 </header>
+</div></div>
+<div class="wrap">
 <div class="calc">
 <form id="calc-form" class="panel" novalidate autocomplete="off">
 <div class="row2"><div class="field"><label for="dob">Date of birth</label><input id="dob" type="date"></div><div class="field"><label for="on">Age on this date</label><input id="on" type="date"><span class="hint">Today, unless you change it.</span></div></div>
 </form>
-<aside class="slip" id="result" aria-live="polite"><p class="slip-title">Result</p><p class="empty">Loading the calculator…</p></aside>
+<aside class="slip" id="result" aria-live="polite"><p class="slip-title">Result</p><div class="slip-body"><p class="empty">Loading the calculator…</p></div></aside>
 </div>
+<div class="result-bar off" id="result-bar" hidden><div><span class="rb-k"></span><span class="rb-v"></span></div><a href="#result">See details</a></div>
 <div class="article">
 
 <h2>How exact age is worked out</h2>
@@ -52,20 +57,24 @@
 <h2>Checking your age for a job advert</h2>
 <p>Government job adverts count your age on the closing date and often allow age relaxation. Use the <a href="/govt-job-age-calculator/">government job age calculator</a> to check eligibility with FPSC or PPSC relaxation added.</p>
 
-<h2 id="faq">Questions people ask</h2>
+<h2 id="faq">Questions people ask</h2><div class="faq">
 <details><summary>How do I calculate my age from my date of birth?</summary><div><p>Subtract your birth year from the current year, then take one off if your birthday has not come yet this year. For months and days, count whole months since your last birthday and the days left over. The calculator does all of this for you.</p></div></details>
 <details><summary>What day of the week was I born?</summary><div><p>Enter your date of birth and the result shows the weekday you were born on.</p></div></details>
 <details><summary>Can I check my age on a past or future date?</summary><div><p>Yes. Change the "Age on this date" field to any date.</p></div></details>
+</div>
 <h2>Sources</h2>
 <p class="sources">Calendar calculation; no external data is used.</p>
 </div>
-<section class="related article"><h2 style="margin-top:0">More calculators</h2><ul><li><a href="/salary-tax-calculator/">Salary tax</a>: How much income tax comes out of my salary each month?</li><li><a href="/govt-job-age-calculator/">Govt job age</a>: Am I within the age limit for this FPSC or PPSC post?</li><li><a href="/electricity-bill-calculator/">Electricity bill</a>: What will my bill be for the units I used?</li><li><a href="/zakat-calculator/">Zakat</a>: How much zakat do I owe on my savings, gold and silver?</li></ul></section>
+<section class="related"><h2>More calculators</h2><ul class="cards c3"><li data-tool="tax" data-find="salary tax salary tax calculator for 2026-27 how much income tax comes out of my salary each month? income tax fbr salary slab 2026 2027 budget payroll"><a class="card" href="/salary-tax-calculator/"><span class="top"><span class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9.5 14.5l5-5"/><circle cx="9.5" cy="9.5" r=".9"/><circle cx="14.5" cy="14.5" r=".9"/></svg></span><span class="name">Salary tax calculator</span></span><span class="q">How much income tax comes out of my salary each month?</span><span class="foot"><span class="when">Finance Act 2026</span><span class="go">Open <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span></span></a></li><li data-tool="age-job" data-find="govt job age government job age calculator am i within the age limit for this fpsc or ppsc post? fpsc ppsc age limit relaxation eligibility government job"><a class="card" href="/govt-job-age-calculator/"><span class="top"><span class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="11" r="2.2"/><path d="M5.8 16.5c.6-1.5 1.8-2.3 3.2-2.3s2.6.8 3.2 2.3"/><path d="M14.5 10h4M14.5 13.5h3"/></svg></span><span class="name">Govt job age calculator</span></span><span class="q">Am I within the age limit for this FPSC or PPSC post?</span><span class="foot"><span class="when">FPSC rules, July 2026</span><span class="go">Open <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span></span></a></li><li data-tool="power" data-find="electricity bill electricity bill calculator what will my bill be for the units i used? bijli bill lesco iesco mepco gepco fesco pesco hesco units wapda"><a class="card" href="/electricity-bill-calculator/"><span class="top"><span class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2.5L4.5 13.5H11l-1 8 8.5-11H12z"/></svg></span><span class="name">Electricity bill calculator</span></span><span class="q">What will my bill be for the units I used?</span><span class="foot"><span class="when">Tariff from Feb 2026</span><span class="go">Open <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span></span></a></li></ul></section>
 </div></main>
 <footer class="site-foot"><div class="wrap">
-<nav aria-label="Calculators"><a href="/salary-tax-calculator/">Salary tax</a><a href="/govt-job-age-calculator/">Govt job age</a><a href="/electricity-bill-calculator/">Electricity bill</a><a href="/zakat-calculator/">Zakat</a><a href="/percentage-calculator/">Marks percentage</a><a href="/cgpa-calculator/">GPA and CGPA</a><a href="/age-calculator/">Age</a></nav>
-<nav aria-label="Site"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy-policy/">Privacy policy</a><a href="/terms/">Terms and disclaimer</a></nav>
-<p style="margin:0;flex-basis:100%;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap"><span>© 2026 PakCalculators. Free calculators for Pakistan. Figures are estimates; check official sources for decisions.</span><button type="button" class="theme-toggle" id="theme-toggle">Dark mode</button></p>
+<div class="cols">
+<div><span class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="2" width="26" height="28" rx="7" fill="#0e7a55"/><rect x="7.5" y="6.5" width="17" height="6.5" rx="2" fill="#fff"/><circle cx="10.5" cy="18.5" r="2" fill="#fff" opacity=".85"/><circle cx="16" cy="18.5" r="2" fill="#fff" opacity=".85"/><circle cx="21.5" cy="18.5" r="2" fill="#f5b82e"/><circle cx="10.5" cy="24" r="2" fill="#fff" opacity=".85"/><circle cx="16" cy="24" r="2" fill="#fff" opacity=".85"/><circle cx="21.5" cy="24" r="2" fill="#fff" opacity=".85"/></svg>PakCalculators</span><p>Free calculators for everyday sums in Pakistan, built on the current official rules. Figures are estimates; check official sources for important decisions.</p></div>
+<nav aria-label="Calculators"><h2>Calculators</h2><ul><li><a href="/salary-tax-calculator/">Salary tax calculator</a></li><li><a href="/govt-job-age-calculator/">Govt job age calculator</a></li><li><a href="/electricity-bill-calculator/">Electricity bill calculator</a></li><li><a href="/zakat-calculator/">Zakat calculator</a></li><li><a href="/percentage-calculator/">Marks percentage calculator</a></li><li><a href="/cgpa-calculator/">GPA and CGPA calculator</a></li><li><a href="/age-calculator/">Age calculator</a></li></ul></nav>
+<nav aria-label="Site"><h2>Site</h2><ul><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy-policy/">Privacy policy</a></li><li><a href="/terms/">Terms and disclaimer</a></li></ul></nav>
+</div>
+<div class="legal"><p>© 2026 PakCalculators</p><button type="button" class="theme-toggle" id="theme-toggle">Dark mode</button></div>
 </div></footer>
-<script src="/assets/common.js?v=1" defer></script><script src="/assets/tools/age-core.js?v=1" defer></script><script src="/assets/tools/age.js?v=1" defer></script>
+<script src="/assets/common.js?v=2" defer></script><script src="/assets/tools/age-core.js?v=2" defer></script><script src="/assets/tools/age.js?v=2" defer></script>
 </body>
 </html>

@@ -5,7 +5,7 @@ BASE_URL = "https://pakcalculators.vercel.app"   # change to the custom domain o
 EMAIL = "businessfor1512@gmail.com"
 CHECKED = "2 November 2026"
 CHECKED_ISO = "2026-11-02"
-ASSET_VERSION = "1"
+ASSET_VERSION = "2"
 
 
 def money_field(id_, label, hint="", value="", placeholder="0"):
@@ -36,6 +36,8 @@ def table(head, rows, num_cols=()):
 # ---------------------------------------------------------------- Salary tax
 SALARY = {
     "slug": "salary-tax-calculator",
+    "card_name": "Salary tax calculator",
+    "keywords": "income tax fbr salary slab 2026 2027 budget payroll",
     "short": "Salary tax",
     "question": "How much income tax comes out of my salary each month?",
     "when": "Finance Act 2026",
@@ -134,6 +136,8 @@ FPSC_OPTS = """<div id="fpsc-opts">
 
 GOVT_AGE = {
     "slug": "govt-job-age-calculator",
+    "card_name": "Govt job age calculator",
+    "keywords": "fpsc ppsc age limit relaxation eligibility government job",
     "short": "Govt job age",
     "question": "Am I within the age limit for this FPSC or PPSC post?",
     "when": "FPSC rules, July 2026",
@@ -196,6 +200,8 @@ GOVT_AGE = {
 # ---------------------------------------------------------------- Electricity
 ELECTRICITY = {
     "slug": "electricity-bill-calculator",
+    "card_name": "Electricity bill calculator",
+    "keywords": "bijli bill lesco iesco mepco gepco fesco pesco hesco units wapda",
     "short": "Electricity bill",
     "question": "What will my bill be for the units I used?",
     "when": "Tariff from Feb 2026",
@@ -274,6 +280,8 @@ ELECTRICITY = {
 # ---------------------------------------------------------------- Zakat
 ZAKAT = {
     "slug": "zakat-calculator",
+    "card_name": "Zakat calculator",
+    "keywords": "nisab gold silver tola ramadan",
     "short": "Zakat",
     "question": "How much zakat do I owe on my savings, gold and silver?",
     "when": "Enter today's prices",
@@ -338,6 +346,8 @@ ZAKAT = {
 # ---------------------------------------------------------------- Percentage
 PERCENTAGE = {
     "slug": "percentage-calculator",
+    "card_name": "Marks percentage calculator",
+    "keywords": "percent matric inter result grade board exam",
     "short": "Marks percentage",
     "question": "What percentage and grade did I get in my exam?",
     "when": "IBCC grading",
@@ -403,6 +413,8 @@ PERCENTAGE = {
 # ---------------------------------------------------------------- CGPA
 CGPA = {
     "slug": "cgpa-calculator",
+    "card_name": "GPA and CGPA calculator",
+    "keywords": "university semester gpa grade points hec",
     "short": "GPA and CGPA",
     "question": "What is my semester GPA and new CGPA?",
     "when": "4.00 scale",
@@ -455,6 +467,8 @@ CGPA = {
 # ---------------------------------------------------------------- Age
 AGE = {
     "slug": "age-calculator",
+    "card_name": "Age calculator",
+    "keywords": "date of birth years months days birthday",
     "short": "Age",
     "question": "How old am I exactly, in years, months and days?",
     "when": "Always current",
@@ -493,8 +507,13 @@ HOME = {
     "slug": "",
     "title": "PakCalculators: Free Tax, Electricity Bill, Zakat & Age Calculators Pakistan",
     "description": "Free calculators for everyday sums in Pakistan: salary tax under the 2026-27 slabs, electricity bills, zakat, government job age limits, marks percentage and CGPA.",
-    "h1": "Everyday sums for Pakistan, worked out",
-    "lede": "Salary tax, electricity bills, zakat, job age limits and exam marks. Each calculator uses the current rules and shows every step, so you can check it yourself.",
+    "h1": "Free calculators for Pakistan",
+    "lede": "Work out your salary tax, electricity bill, zakat, job age limit and exam marks in seconds, with the latest 2026-27 rules.",
+    "why": [
+        ("calendar", "Up to date", "Built on the 2026-27 tax slabs, the current NEPRA tariff and the latest FPSC and PPSC rules."),
+        ("list", "Every step shown", "Each result shows how it was worked out, so you can check it yourself."),
+        ("lock", "Private", "Everything is calculated on your phone. Nothing you type is sent or saved."),
+    ],
     "body": """
 <h2>Why these calculators</h2>
 <p>Most calculators online are built for other countries. These are built around Pakistani rules: FBR's tax slabs, NEPRA's electricity tariff, FPSC and PPSC age relaxation, and board and university grading. Each page lists the date its figures were last checked and links to the sources.</p>

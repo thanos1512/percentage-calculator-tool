@@ -39,6 +39,12 @@
   var api = { round: round, group: group, money: money, lakh: lakh, esc: esc };
 
   if (typeof document !== "undefined") {
+    var ICON = {
+      check: '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+      cross: '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v5"/><path d="M12 16.5v.01"/><circle cx="12" cy="12" r="9"/></svg>',
+      pen: '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg>'
+    };
+
     api.$ = function (id) { return document.getElementById(id); };
 
     // Reads a number from an input; accepts "1,50,000" and "150000".
@@ -54,11 +60,13 @@
       return el ? el.value : null;
     };
 
-    // Renders the bill-style result into a .slip element.
+    // Renders the bill-style result into a .slip element, and mirrors the total into the mobile result bar.
     api.slip = function (el, r) {
-      var h = '<p class="slip-title">' + esc(r.title) + "</p>";
+      var h = '<p class="slip-title">' + esc(r.title) + '</p><div class="slip-body">';
+      var bar = document.getElementById("result-bar");
       if (r.empty) {
-        el.innerHTML = h + '<p class="empty">' + esc(r.empty) + "</p>";
+        el.innerHTML = h + '<p class="empty">' + ICON.pen + "<span>" + esc(r.empty) + "</span></p></div>";
+        if (bar) bar.hidden = true;
         return;
       }
       if (r.lines && r.lines.length) {
@@ -74,11 +82,17 @@
           esc(r.total.v) + "</span>" + (r.total.note ? '<span class="note">' + esc(r.total.note) + "</span>" : "") + "</div>";
       }
       if (r.verdict) {
-        h += '<div class="verdict ' + (r.verdict.ok ? "yes" : "no") + '">' + esc(r.verdict.text) + "</div>";
+        h += '<div class="verdict ' + (r.verdict.ok ? "yes" : "no") + '">' + (r.verdict.ok ? ICON.check : ICON.cross) +
+          "<span>" + esc(r.verdict.text) + "</span></div>";
       }
       (r.alerts || []).forEach(function (a) { h += '<p class="alert">' + esc(a) + "</p>"; });
       if (r.foot) h += '<p class="slip-foot">' + esc(r.foot) + "</p>";
-      el.innerHTML = h;
+      el.innerHTML = h + "</div>";
+      if (bar && r.total) {
+        bar.querySelector(".rb-k").textContent = r.verdict ? r.verdict.text : r.total.k;
+        bar.querySelector(".rb-v").textContent = r.total.v;
+        bar.hidden = false;
+      }
     };
 
     // Recalculate whenever any input inside the form changes.
@@ -91,8 +105,61 @@
       fn();
     };
 
-    // Theme toggle in the footer
+    // Show commas in rupee fields as the person types: 150000 -> 150,000.
+    function formatMoney(input) {
+      var raw = input.value;
+      var caret = input.selectionStart == null ? raw.length : input.selectionStart;
+      var digitsBefore = raw.slice(0, caret).replace(/[^\d.]/g, "").length;
+      var clean = raw.replace(/[^\d.]/g, "");
+      var dot = clean.indexOf(".");
+      if (dot >= 0) clean = clean.slice(0, dot + 1) + clean.slice(dot + 1).replace(/\./g, "").slice(0, 2);
+      var parts = clean.split(".");
+      parts[0] = parts[0].replace(/^0+(?=\d)/, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      var out = parts.join(".");
+      if (out === raw) return;
+      input.value = out;
+      var pos = 0, seen = 0;
+      while (pos < out.length && seen < digitsBefore) { if (/[\d.]/.test(out[pos])) seen++; pos++; }
+      try { input.setSelectionRange(pos, pos); } catch (e) {}
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll(".money input").forEach(function (inp) {
+        formatMoney(inp);
+        inp.addEventListener("input", function () { formatMoney(inp); });
+      });
+
+      // Mobile result bar: hide it while the full result is on screen.
+      var bar = document.getElementById("result-bar"), slip = document.getElementById("result");
+      if (bar && slip && "IntersectionObserver" in window) {
+        document.body.classList.add("has-bar");
+        new IntersectionObserver(function (es) {
+          es.forEach(function (e) { bar.classList.toggle("off", e.isIntersecting); });
+        }, { threshold: 0.25 }).observe(slip);
+      }
+
+      // Keep the current calculator's chip in view in the scrolling row.
+      var chip = document.querySelector('.chip[aria-current="page"]');
+      if (chip && chip.parentNode.scrollWidth > chip.parentNode.clientWidth) {
+        chip.parentNode.scrollLeft = chip.offsetLeft - (chip.parentNode.clientWidth - chip.offsetWidth) / 2;
+      }
+
+      // Home page search
+      var find = document.getElementById("tool-search");
+      if (find) {
+        var cards = [].slice.call(document.querySelectorAll("#tool-list > li"));
+        var none = document.getElementById("no-match");
+        find.addEventListener("input", function () {
+          var q = find.value.trim().toLowerCase(), shown = 0;
+          cards.forEach(function (c) {
+            var hit = !q || c.getAttribute("data-find").indexOf(q) >= 0;
+            c.hidden = !hit; if (hit) shown++;
+          });
+          none.hidden = shown > 0;
+        });
+      }
+
+      // Theme toggle in the footer
       var btn = document.getElementById("theme-toggle");
       if (!btn) return;
       var rootEl = document.documentElement;
