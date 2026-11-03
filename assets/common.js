@@ -42,8 +42,46 @@
     var ICON = {
       check: '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
       cross: '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v5"/><path d="M12 16.5v.01"/><circle cx="12" cy="12" r="9"/></svg>',
-      pen: '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg>'
+      pen: '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg>',
+      wa: '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.2-3.8A8 8 0 1 1 8 19z"/><path d="M9 8.8c0 3.3 2.9 6.2 6.2 6.2l1.3-1.6-2-1-1 .8a4 4 0 0 1-2.7-2.7l.8-1-1-2z"/></svg>',
+      copy: '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v9A1.5 1.5 0 0 0 5.5 16H8"/></svg>'
     };
+    var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Count a number like "Rs 23,000", "85%" or "3.29" up from its previous value.
+    var NUM = /^(-?)(Rs )?([\d,]+)(\.\d+)?(%?)$/;
+    function parseShown(t) {
+      var m = NUM.exec(t || "");
+      if (!m) return null;
+      var dec = m[4] ? m[4].length - 1 : 0;
+      return { n: Number((m[1] || "") + m[3].replace(/,/g, "") + (m[4] || "")), rs: !!m[2], dec: dec, pct: m[5], comma: m[3].indexOf(",") >= 0 || Number(m[3].replace(/,/g, "")) >= 1000 };
+    }
+    function show(f, n) {
+      var a = Math.abs(n).toFixed(f.dec);
+      if (f.rs || f.comma) a = group(Math.abs(n), f.dec);
+      return (n < 0 ? "-" : "") + (f.rs ? "Rs " : "") + a + f.pct;
+    }
+    function countUp(node, fromText) {
+      var to = parseShown(node.textContent), from = parseShown(fromText);
+      if (still || !to || !from || from.n === to.n) return;
+      var start = null, dur = 450, a = from.n, b = to.n, finalText = node.textContent;
+      function step(ts) {
+        if (!node.isConnected) return;
+        if (start === null) start = ts;
+        var k = Math.min(1, (ts - start) / dur), e = 1 - Math.pow(1 - k, 3);
+        node.textContent = k < 1 ? show(to, a + (b - a) * e) : finalText;
+        if (k < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    var toastEl = null, toastTimer = null;
+    function toast(msg) {
+      if (!toastEl) { toastEl = document.createElement("div"); toastEl.className = "toast"; toastEl.setAttribute("role", "status"); document.body.appendChild(toastEl); }
+      toastEl.textContent = msg; toastEl.classList.add("show");
+      clearTimeout(toastTimer); toastTimer = setTimeout(function () { toastEl.classList.remove("show"); }, 1800);
+    }
+    api.toast = toast;
 
     api.$ = function (id) { return document.getElementById(id); };
 
@@ -62,6 +100,8 @@
 
     // Renders the bill-style result into a .slip element, and mirrors the total into the mobile result bar.
     api.slip = function (el, r) {
+      var prevV = el.querySelector(".total .v");
+      var prevText = prevV ? prevV.textContent : null;
       var h = '<p class="slip-title">' + esc(r.title) + '</p><div class="slip-body">';
       var bar = document.getElementById("result-bar");
       if (r.empty) {
@@ -86,8 +126,24 @@
           "<span>" + esc(r.verdict.text) + "</span></div>";
       }
       (r.alerts || []).forEach(function (a) { h += '<p class="alert">' + esc(a) + "</p>"; });
+      if (r.total && !el.hasAttribute("data-compact")) {
+        h += '<div class="share"><button type="button" class="wa" data-share>' + ICON.wa + 'Share on WhatsApp</button>' +
+          '<button type="button" class="ghost" data-copy>' + ICON.copy + "Copy result</button></div>";
+      }
       if (r.foot) h += '<p class="slip-foot">' + esc(r.foot) + "</p>";
       el.innerHTML = h + "</div>";
+      if (r.total) {
+        el._shareText = r.total.k + ": " + r.total.v + (r.verdict ? "\n" + r.verdict.text : "") +
+          "\nWorked out on PakCalculators: " + location.href.split("#")[0];
+        var v = el.querySelector(".total .v");
+        if (prevText === null) {
+          var z = parseShown(r.total.v);
+          if (z) countUp(v, show(z, 0));
+        } else if (prevText !== r.total.v) {
+          countUp(v, prevText);
+          if (!still) v.parentNode.classList.add("bump");
+        }
+      }
       if (bar && r.total) {
         bar.querySelector(".rb-k").textContent = r.verdict ? r.verdict.text : r.total.k;
         bar.querySelector(".rb-v").textContent = r.total.v;
@@ -137,6 +193,44 @@
           es.forEach(function (e) { bar.classList.toggle("off", e.isIntersecting); });
         }, { threshold: 0.25 }).observe(slip);
       }
+
+      // Share and copy buttons in the result
+      document.addEventListener("click", function (e) {
+        var b = e.target.closest ? e.target.closest("[data-share],[data-copy]") : null;
+        if (!b) return;
+        var slipEl = b.closest(".slip"), text = slipEl && slipEl._shareText;
+        if (!text) return;
+        if (b.hasAttribute("data-share")) {
+          window.open("https://wa.me/?text=" + encodeURIComponent(text), "_blank", "noopener");
+        } else {
+          var done = function () { toast("Result copied"); };
+          if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function () { toast("Couldn't copy. Select the result and copy it instead."); });
+          else toast("Couldn't copy. Select the result and copy it instead.");
+        }
+      });
+
+      // Quick example buttons fill the form
+      document.querySelectorAll(".presets").forEach(function (row) {
+        var btns = row.querySelectorAll("button");
+        btns.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var vals = JSON.parse(btn.getAttribute("data-fill"));
+            Object.keys(vals).forEach(function (id) {
+              var inp = document.getElementById(id);
+              if (!inp) return;
+              inp.value = vals[id];
+              inp.dispatchEvent(new Event("input", { bubbles: true }));
+            });
+            btns.forEach(function (o) { o.setAttribute("aria-pressed", o === btn ? "true" : "false"); });
+          });
+        });
+        var ids = [];
+        btns.forEach(function (b) { Object.keys(JSON.parse(b.getAttribute("data-fill"))).forEach(function (k) { if (ids.indexOf(k) < 0) ids.push(k); }); });
+        ids.forEach(function (id) {
+          var inp = document.getElementById(id);
+          if (inp) inp.addEventListener("input", function (e) { if (e.isTrusted) btns.forEach(function (o) { o.setAttribute("aria-pressed", "false"); }); });
+        });
+      });
 
       // Keep the current calculator's chip in view in the scrolling row.
       var chip = document.querySelector('.chip[aria-current="page"]');

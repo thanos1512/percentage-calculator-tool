@@ -182,6 +182,14 @@ def tool_ld(pg):
     return {"@context": "https://schema.org", "@graph": graph}
 
 
+def presets(pg):
+    if not pg.get("presets"):
+        return ""
+    label, items = pg["presets"]
+    btns = "".join(f'<button type="button" aria-pressed="false" data-fill="{html.escape(json.dumps(v))}">{html.escape(t)}</button>' for t, v in items)
+    return f'<div class="presets" role="group" aria-label="{html.escape(label)}"><span class="pl">{html.escape(label)}</span>{btns}</div>\n'
+
+
 def tool_page(pg):
     k = key(pg)
     body = f"""{nav(None, pg["slug"])}<main id="main" class="page">
@@ -197,7 +205,7 @@ def tool_page(pg):
 <div class="wrap">
 <div class="calc">
 <form id="calc-form" class="panel" novalidate autocomplete="off">
-{pg["form"]}
+{presets(pg)}{pg["form"]}
 </form>
 <aside class="slip" id="result" aria-live="polite"><p class="slip-title">Result</p><div class="slip-body"><p class="empty">Loading the calculator…</p></div></aside>
 </div>
@@ -236,6 +244,11 @@ def home_page():
     why = "".join(f'<li><span class="ic">{svg(ICONS[i])}</span><strong>{h}</strong><span>{b}</span></li>' for i, h, b in pg["why"])
     body = f"""{nav("", show_chips=False)}<main id="main">
 <section class="hero"><div class="wrap">
+<div class="hero-art" aria-hidden="true">
+<div class="mini" data-tool="tax"><span class="mk"><i>{svg(ICONS["tax"])}</i>Tax on Rs 2.5 lakh salary</span><span class="mv">Rs 23,000 a month</span></div>
+<div class="mini" data-tool="power"><span class="mk"><i>{svg(ICONS["power"])}</i>Bill for 300 units</span><span class="mv">Rs 13,450</span></div>
+<div class="mini" data-tool="age-job"><span class="mk"><i>{svg(ICONS["age-job"])}</i>FPSC age limit</span><span class="mv">Eligible ✓</span></div>
+</div>
 <h1>{pg["h1"]}</h1>
 <p class="lede">{pg["lede"]}</p>
 <div class="finder">{svg(ICONS["search"])}<label for="tool-search" class="skip-link">Search calculators</label>

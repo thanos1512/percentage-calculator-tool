@@ -5,7 +5,7 @@ BASE_URL = "https://pakcalculators.vercel.app"   # change to the custom domain o
 EMAIL = "businessfor1512@gmail.com"
 CHECKED = "2 November 2026"
 CHECKED_ISO = "2026-11-02"
-ASSET_VERSION = "2"
+ASSET_VERSION = "3"
 
 
 def money_field(id_, label, hint="", value="", placeholder="0"):
@@ -37,6 +37,7 @@ def table(head, rows, num_cols=()):
 SALARY = {
     "slug": "salary-tax-calculator",
     "card_name": "Salary tax calculator",
+    "presets": ('Try a salary:', [('Rs 50,000', {'salary': '50000'}), ('Rs 1 lakh', {'salary': '100000'}), ('Rs 1.5 lakh', {'salary': '150000'}), ('Rs 2.5 lakh', {'salary': '250000'}), ('Rs 5 lakh', {'salary': '500000'})]),
     "keywords": "income tax fbr salary slab 2026 2027 budget payroll",
     "short": "Salary tax",
     "question": "How much income tax comes out of my salary each month?",
@@ -137,6 +138,7 @@ FPSC_OPTS = """<div id="fpsc-opts">
 GOVT_AGE = {
     "slug": "govt-job-age-calculator",
     "card_name": "Govt job age calculator",
+    "presets": ('Common age limits:', [('18 to 25', {'min-age': '18', 'max-age': '25'}), ('18 to 28', {'min-age': '18', 'max-age': '28'}), ('21 to 30', {'min-age': '21', 'max-age': '30'}), ('18 to 35', {'min-age': '18', 'max-age': '35'})]),
     "keywords": "fpsc ppsc age limit relaxation eligibility government job",
     "short": "Govt job age",
     "question": "Am I within the age limit for this FPSC or PPSC post?",
@@ -201,6 +203,7 @@ GOVT_AGE = {
 ELECTRICITY = {
     "slug": "electricity-bill-calculator",
     "card_name": "Electricity bill calculator",
+    "presets": ('Try:', [('100 units', {'units': '100'}), ('200 units', {'units': '200'}), ('300 units', {'units': '300'}), ('500 units', {'units': '500'})]),
     "keywords": "bijli bill lesco iesco mepco gepco fesco pesco hesco units wapda",
     "short": "Electricity bill",
     "question": "What will my bill be for the units I used?",
@@ -347,6 +350,7 @@ ZAKAT = {
 PERCENTAGE = {
     "slug": "percentage-calculator",
     "card_name": "Marks percentage calculator",
+    "presets": ('Total marks:', [('1200', {'total': '1200'}), ('1100', {'total': '1100'}), ('550', {'total': '550'}), ('100', {'total': '100'})]),
     "keywords": "percent matric inter result grade board exam",
     "short": "Marks percentage",
     "question": "What percentage and grade did I get in my exam?",
