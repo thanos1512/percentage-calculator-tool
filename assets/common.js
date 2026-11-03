@@ -102,7 +102,11 @@
     api.slip = function (el, r) {
       var prevV = el.querySelector(".total .v");
       var prevText = prevV ? prevV.textContent : null;
-      var h = '<p class="slip-title">' + esc(r.title) + '</p><div class="slip-body">';
+      var tools = r.total && !el.hasAttribute("data-compact")
+        ? '<span class="share"><button type="button" class="wa" data-share aria-label="Share on WhatsApp" title="Share on WhatsApp">' + ICON.wa +
+          '</button><button type="button" data-copy aria-label="Copy result" title="Copy result">' + ICON.copy + "</button></span>"
+        : "";
+      var h = '<div class="slip-title"><span>' + esc(r.title) + "</span>" + tools + '</div><div class="slip-body">';
       var bar = document.getElementById("result-bar");
       if (r.empty) {
         el.innerHTML = h + '<p class="empty">' + ICON.pen + "<span>" + esc(r.empty) + "</span></p></div>";
@@ -126,10 +130,6 @@
           "<span>" + esc(r.verdict.text) + "</span></div>";
       }
       (r.alerts || []).forEach(function (a) { h += '<p class="alert">' + esc(a) + "</p>"; });
-      if (r.total && !el.hasAttribute("data-compact")) {
-        h += '<div class="share"><button type="button" class="wa" data-share>' + ICON.wa + 'Share on WhatsApp</button>' +
-          '<button type="button" class="ghost" data-copy>' + ICON.copy + "Copy result</button></div>";
-      }
       if (r.foot) h += '<p class="slip-foot">' + esc(r.foot) + "</p>";
       el.innerHTML = h + "</div>";
       if (r.total) {

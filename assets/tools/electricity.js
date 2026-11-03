@@ -88,8 +88,7 @@
     var names = { non: "Non-protected", protected: "Protected", lifeline: "Lifeline" };
     var lines = [
       { k: "Category used", v: names[r.type] },
-      { k: "Energy charges", v: HPK.money(r.energy) },
-      { k: r.rateText, v: "", cls: "sub" },
+      { k: "Energy (" + r.rateText + ")", v: HPK.money(r.energy) },
       { k: "Fixed charges (" + r.kw + " kW × Rs " + r.fixedRate + ")", v: HPK.money(r.fixed) },
       { k: "FC surcharge (Rs " + r.fcRate + "/unit)", v: HPK.money(r.fc) }
     ];

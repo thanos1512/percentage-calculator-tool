@@ -141,7 +141,7 @@
       lines: lines,
       total: { k: "Your age on " + A.pretty(A.parse(o.closing)), v: A.text(r.age), note: note },
       verdict: verdict,
-      foot: "The advert's own wording decides. If you are within a few days of a limit, confirm the exact date range in the advertisement."
+      foot: "The advert's wording is final. Close to a limit? Check the exact dates in the advert."
     });
   }
 

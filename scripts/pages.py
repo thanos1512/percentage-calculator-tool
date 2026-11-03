@@ -5,7 +5,7 @@ BASE_URL = "https://pakcalculators.vercel.app"   # change to the custom domain o
 EMAIL = "businessfor1512@gmail.com"
 CHECKED = "2 November 2026"
 CHECKED_ISO = "2026-11-02"
-ASSET_VERSION = "3"
+ASSET_VERSION = "4"
 
 
 def money_field(id_, label, hint="", value="", placeholder="0"):
@@ -132,7 +132,9 @@ FPSC_OPTS = """<div id="fpsc-opts">
     "pb-service", "Punjab government service to exclude (years)", "Regular or contract service with the Punjab government is not counted in your age.", "0", "0.5") + """
 </div>
 <div id="other-opts" hidden>""" + num_field("custom-relax", "Relaxation stated in the advert (years)", "Add any relaxation the advert gives you.", "0") + """</div>
+<details class="more"><summary>More options</summary>
 <label class="check"><input type="checkbox" id="inclusive"><span>Count the closing date as a full day <span class="hint">PPSC adds one day when it counts age. Switches on automatically for PPSC.</span></span></label>
+</details>
 """
 
 GOVT_AGE = {
@@ -150,9 +152,9 @@ GOVT_AGE = {
     "lede": "Find your exact age on the closing date of a job advert, add the age relaxation you qualify for, and see straight away whether you can apply.",
     "checked_label": "Rules checked",
     "scripts": ["tools/age-core.js", "tools/govt-age.js"],
-    "form": '<div class="row2"><div class="field"><label for="dob">Date of birth</label><input id="dob" type="date"><span class="hint">As written on your matric certificate.</span></div>'
-            '<div class="field"><label for="closing">Last date to apply</label><input id="closing" type="date"><span class="hint">The closing date in the advert.</span></div></div>'
-            '<div class="row2">' + num_field("min-age", "Minimum age in the advert", "", "18") + num_field("max-age", "Maximum age in the advert", "Before any relaxation.", "25") + "</div>"
+    "form": '<div class="grid-auto"><div class="field"><label for="dob">Date of birth</label><input id="dob" type="date"><span class="hint">As on your matric certificate</span></div>'
+            '<div class="field"><label for="closing">Last date to apply</label><input id="closing" type="date"><span class="hint">Closing date in the advert</span></div>'
+            + num_field("min-age", "Minimum age", "", "18") + num_field("max-age", "Maximum age", "Before relaxation", "25") + "</div>"
             + seg("commission", "Who is recruiting?", [("fpsc", "FPSC / federal"), ("ppsc", "PPSC / Punjab"), ("other", "Other")], "fpsc")
             + FPSC_OPTS,
     "article": f"""
@@ -214,14 +216,16 @@ ELECTRICITY = {
     "lede": "Enter the units you used to estimate your home electricity bill, with the current slab rates, fixed charges and taxes. The same rates apply to LESCO, IESCO, GEPCO, FESCO, MEPCO, PESCO, HESCO and the other companies.",
     "checked_label": "Tariff checked",
     "scripts": ["tools/electricity.js"],
-    "form": num_field("units", "Units used this month", "Printed on your bill as units consumed.", "", "1", "0", "250")
+    "form": num_field("units", "Units used this month", "Printed on your bill as units consumed", "", "1", "0", "250")
             + seg("type", "Your consumer type", [("non", "Non-protected"), ("protected", "Protected"), ("lifeline", "Lifeline")], "non")
-            + '<p class="hint" style="margin-top:-.6rem">Protected means you used 200 units or fewer in each of the last 6 months. Lifeline means 100 units or fewer.</p>'
-            + '<div class="row2">' + num_field("load", "Sanctioned load (kW)", "Printed on your bill. Most homes have 1 to 5 kW.", "1", "1", "1")
-            + num_field("fpa", "Fuel adjustment per unit (Rs)", "Optional. Use a minus sign for a refund.", "", "0.01", "-20", "0") + "</div>"
+            + '<p class="hint" style="margin:-.5rem 0 .8rem">Protected: 200 units or fewer in each of the last 6 months. Lifeline: 100 units or fewer.</p>'
+            + '<div class="row2">' + num_field("load", "Sanctioned load (kW)", "On your bill; most homes have 1 to 5", "1", "1", "1")
+            + num_field("fpa", "Fuel adjustment per unit (Rs)", "Optional; minus for a refund", "", "0.01", "-20", "0") + "</div>"
+            + '<details class="more"><summary>More options: duty, PTV fee, non-filer tax</summary>'
             + '<label class="check"><input type="checkbox" id="duty" checked><span>Include electricity duty (1.5%)</span></label>'
             + '<label class="check"><input type="checkbox" id="tv"><span>Include PTV fee (Rs 35)</span></label>'
-            + '<label class="check"><input type="checkbox" id="nonfiler"><span>I am not on FBR\'s Active Taxpayer List <span class="hint">Adds 7.5% income tax on bills above Rs 25,000.</span></span></label>',
+            + '<label class="check"><input type="checkbox" id="nonfiler"><span>I am not on FBR\'s Active Taxpayer List <span class="hint">Adds 7.5% income tax on bills above Rs 25,000.</span></span></label>'
+            + '</details>',
     "article": f"""
 <h2>Per-unit rates for homes</h2>
 <p>NEPRA sets one national tariff for household electricity, so every distribution company bills homes at the same base rates. These are the rates notified in February 2026.</p>
@@ -294,17 +298,17 @@ ZAKAT = {
     "lede": "Add up your cash, savings, gold, silver and business stock to see whether zakat is due and how much to pay. Enter today's gold and silver price per tola from your local market.",
     "checked_label": "Method checked",
     "scripts": ["tools/zakat.js"],
-    "form": seg("unit", "Weigh gold and silver in", [("tola", "Tola"), ("g", "Grams")], "tola")
-            + '<div class="row2">' + num_field("gold", "Gold you own", "", "", "0.01", "0", "0")
-            + '<div class="field" id="gold-price-field"><label for="gold-price">Gold price per tola</label><div class="money"><span>Rs</span><input id="gold-price" type="text" inputmode="numeric" placeholder="Today\'s rate"></div><span class="hint" hidden>Enter the gold price to include your gold.</span></div></div>'
-            + '<div class="row2">' + num_field("silver", "Silver you own", "", "", "0.01", "0", "0")
-            + money_field("silver-price", "Silver price per tola", "Needed for the silver nisab.", "", "Today's rate") + "</div>"
-            + money_field("cash", "Cash at home") + money_field("bank", "Bank and savings balances")
-            + money_field("business", "Business stock for sale", "Value at today's selling price.")
-            + money_field("receivable", "Money owed to you", "Loans you expect to get back.")
-            + money_field("investments", "Shares, funds and prize bonds")
-            + money_field("debts", "Debts and bills due now", "Subtracted from your wealth.")
-            + seg("basis", "Nisab based on", [("silver", "Silver (52.5 tola)"), ("gold", "Gold (7.5 tola)")], "silver"),
+    "form": '<div class="pair">' + seg("unit", "Weigh gold and silver in", [("tola", "Tola"), ("g", "Grams")], "tola")
+            + seg("basis", "Nisab based on", [("silver", "Silver (52.5 tola)"), ("gold", "Gold (7.5 tola)")], "silver") + "</div>"
+            + '<div class="grid-auto">' + num_field("gold", "Gold you own", "", "", "0.01", "0", "0")
+            + '<div class="field" id="gold-price-field"><label for="gold-price">Gold price per tola</label><div class="money"><span>Rs</span><input id="gold-price" type="text" inputmode="numeric" placeholder="Today\'s rate"></div><span class="hint" hidden>Enter the gold price to include your gold.</span></div>'
+            + num_field("silver", "Silver you own", "", "", "0.01", "0", "0")
+            + money_field("silver-price", "Silver price per tola", "Needed for the silver nisab", "", "Today's rate") + "</div>"
+            + '<div class="grid-auto wide">' + money_field("cash", "Cash at home") + money_field("bank", "Bank balances")
+            + money_field("business", "Business stock", "At today's selling price")
+            + money_field("receivable", "Money owed to you", "Loans you expect back")
+            + money_field("investments", "Shares and prize bonds")
+            + money_field("debts", "Debts due now", "Subtracted from the total") + "</div>",
     "article": f"""
 <h2>How zakat is calculated</h2>
 <ol>
@@ -430,10 +434,9 @@ CGPA = {
     "checked_label": "Scale checked",
     "scripts": ["tools/cgpa.js"],
     "form": '<div id="courses" class="courses"></div>'
-            '<p><button type="button" class="ghost" id="add-course">Add a course</button></p>'
-            '<h3 style="margin-top:1.4rem">Already have a CGPA? <span class="hint" style="display:inline;font-weight:400">Optional</span></h3>'
-            '<div class="row2">' + num_field("prev-cgpa", "Current CGPA", "", "", "0.01", "0", "3.20")
-            + num_field("prev-credits", "Credit hours completed", "Before this semester.", "", "1", "0", "60") + "</div>",
+            '<p style="margin:.2rem 0 .9rem"><button type="button" class="ghost" id="add-course" style="min-height:36px;padding:.2rem .9rem;font-size:.88rem">+ Add a course</button></p>'
+            '<div class="row2">' + num_field("prev-cgpa", "Current CGPA (optional)", "", "", "0.01", "0", "3.20")
+            + num_field("prev-credits", "Credit hours done (optional)", "", "", "1", "0", "60") + "</div>",
     "article": f"""
 <h2>How GPA is calculated</h2>
 <p>Each grade carries grade points. Multiply each course's grade points by its credit hours to get quality points, add them up, and divide by the total credit hours.</p>

@@ -198,7 +198,6 @@ def tool_page(pg):
 <header class="tool-head">
 <span class="badge">{svg(ICONS[k])}</span>
 <h1>{pg["h1"]}</h1>
-<p class="lede">{pg["lede"]}</p>
 <p class="checked">{svg(ICONS["check"])}{pg.get("checked_label", "Rates checked")} {P.CHECKED}</p>
 </header>
 </div></div>
@@ -211,6 +210,7 @@ def tool_page(pg):
 </div>
 <div class="result-bar off" id="result-bar" hidden><div><span class="rb-k"></span><span class="rb-v"></span></div><a href="#result">See details</a></div>
 <div class="article">
+<p class="intro">{pg["lede"]}</p>
 {pg["article"]}
 {faq_html(pg["faq"])}
 <h2>Sources</h2>

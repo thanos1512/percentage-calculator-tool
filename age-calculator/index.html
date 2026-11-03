@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="/assets/style.css?v=3">
+<link rel="stylesheet" href="/assets/style.css?v=4">
 <script>try{var t=localStorage.getItem('hpk-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Age calculator", "url": "https://pakcalculators.vercel.app/age-calculator/", "description": "Find your exact age in years, months and days from your date of birth, plus total days, weeks and the countdown to your next birthday.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "en-PK", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "PKR"}, "dateModified": "2026-11-02"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://pakcalculators.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Age", "item": "https://pakcalculators.vercel.app/age-calculator/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I calculate my age from my date of birth?", "acceptedAnswer": {"@type": "Answer", "text": "Subtract your birth year from the current year, then take one off if your birthday has not come yet this year. For months and days, count whole months since your last birthday and the days left over. The calculator does all of this for you."}}, {"@type": "Question", "name": "What day of the week was I born?", "acceptedAnswer": {"@type": "Answer", "text": "Enter your date of birth and the result shows the weekday you were born on."}}, {"@type": "Question", "name": "Can I check my age on a past or future date?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Change the \"Age on this date\" field to any date."}}]}]}</script>
 </head>
@@ -36,7 +36,6 @@
 <header class="tool-head">
 <span class="badge"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 21h17"/><rect x="5" y="12" width="14" height="9" rx="1.8"/><path d="M5 16c1.2.9 2.3.9 3.5 0s2.3-.9 3.5 0 2.3.9 3.5 0 2.3-.9 3.5 0"/><path d="M12 12V8.5"/><path d="M12 6c.9-.8.9-1.8 0-2.8-.9 1-.9 2 0 2.8z"/></svg></span>
 <h1>Age calculator</h1>
-<p class="lede">Enter your date of birth to see your exact age in years, months and days, the day of the week you were born, and how long until your next birthday.</p>
 <p class="checked"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Updated 2 November 2026</p>
 </header>
 </div></div>
@@ -49,6 +48,7 @@
 </div>
 <div class="result-bar off" id="result-bar" hidden><div><span class="rb-k"></span><span class="rb-v"></span></div><a href="#result">See details</a></div>
 <div class="article">
+<p class="intro">Enter your date of birth to see your exact age in years, months and days, the day of the week you were born, and how long until your next birthday.</p>
 
 <h2>How exact age is worked out</h2>
 <p>The calculator counts whole years since your date of birth, then whole months after your last birthday, then the days left over. When the day of the month in your birth date is later than today's, it borrows the days of the previous month, which is how ages are counted on official forms.</p>
@@ -75,6 +75,6 @@
 </div>
 <div class="legal"><p>© 2026 PakCalculators</p><button type="button" class="theme-toggle" id="theme-toggle">Dark mode</button></div>
 </div></footer>
-<script src="/assets/common.js?v=3" defer></script><script src="/assets/tools/age-core.js?v=3" defer></script><script src="/assets/tools/age.js?v=3" defer></script>
+<script src="/assets/common.js?v=4" defer></script><script src="/assets/tools/age-core.js?v=4" defer></script><script src="/assets/tools/age.js?v=4" defer></script>
 </body>
 </html>

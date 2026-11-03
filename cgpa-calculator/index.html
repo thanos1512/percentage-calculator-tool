@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="/assets/style.css?v=3">
+<link rel="stylesheet" href="/assets/style.css?v=4">
 <script>try{var t=localStorage.getItem('hpk-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "GPA and CGPA calculator", "url": "https://pakcalculators.vercel.app/cgpa-calculator/", "description": "Calculate your semester GPA from course grades and credit hours, then your new CGPA. Uses the 4.00 grade-point scale followed by most HEC-recognised universities.", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "en-PK", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "PKR"}, "dateModified": "2026-11-02"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://pakcalculators.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "GPA and CGPA", "item": "https://pakcalculators.vercel.app/cgpa-calculator/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the difference between GPA and CGPA?", "acceptedAnswer": {"@type": "Answer", "text": "GPA is for one semester. CGPA (cumulative GPA) covers every semester you have studied so far, weighted by credit hours."}}, {"@type": "Question", "name": "What CGPA do I need to avoid probation?", "acceptedAnswer": {"@type": "Answer", "text": "Most universities place students on probation below 2.00 CGPA, and many require at least 2.00 to graduate with a bachelor's degree and 2.50 for a master's. Check your university's rules."}}, {"@type": "Question", "name": "Do labs count in CGPA?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, a lab with its own credit hours and grade counts like any other course, weighted by its credit hours."}}, {"@type": "Question", "name": "Can I convert CGPA to percentage?", "acceptedAnswer": {"@type": "Answer", "text": "There is no single formula used by every university. Many publish their own conversion table on the transcript or in the prospectus, and HEC degree attestation uses the CGPA itself. Use your university's table."}}, {"@type": "Question", "name": "How do repeated courses affect CGPA?", "acceptedAnswer": {"@type": "Answer", "text": "Most universities replace the old grade with the new one when you repeat a course. Leave the old attempt out and enter only the new grade."}}]}]}</script>
 </head>
@@ -36,19 +36,19 @@
 <header class="tool-head">
 <span class="badge"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 9L12 4.5 21.5 9 12 13.5z"/><path d="M6.5 11v4.8c0 1.4 2.5 2.9 5.5 2.9s5.5-1.5 5.5-2.9V11"/><path d="M21.5 9v5"/></svg></span>
 <h1>GPA and CGPA calculator</h1>
-<p class="lede">Add your courses with their credit hours and grades to get your semester GPA. Enter your current CGPA too, and you'll see your new CGPA.</p>
 <p class="checked"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Scale checked 2 November 2026</p>
 </header>
 </div></div>
 <div class="wrap">
 <div class="calc">
 <form id="calc-form" class="panel" novalidate autocomplete="off">
-<div id="courses" class="courses"></div><p><button type="button" class="ghost" id="add-course">Add a course</button></p><h3 style="margin-top:1.4rem">Already have a CGPA? <span class="hint" style="display:inline;font-weight:400">Optional</span></h3><div class="row2"><div class="field"><label for="prev-cgpa">Current CGPA</label><input id="prev-cgpa" type="number" inputmode="decimal" step="0.01" min="0" value="" placeholder="3.20"></div><div class="field"><label for="prev-credits">Credit hours completed</label><input id="prev-credits" type="number" inputmode="decimal" step="1" min="0" value="" placeholder="60"><span class="hint">Before this semester.</span></div></div>
+<div id="courses" class="courses"></div><p style="margin:.2rem 0 .9rem"><button type="button" class="ghost" id="add-course" style="min-height:36px;padding:.2rem .9rem;font-size:.88rem">+ Add a course</button></p><div class="row2"><div class="field"><label for="prev-cgpa">Current CGPA (optional)</label><input id="prev-cgpa" type="number" inputmode="decimal" step="0.01" min="0" value="" placeholder="3.20"></div><div class="field"><label for="prev-credits">Credit hours done (optional)</label><input id="prev-credits" type="number" inputmode="decimal" step="1" min="0" value="" placeholder="60"></div></div>
 </form>
 <aside class="slip" id="result" aria-live="polite"><p class="slip-title">Result</p><div class="slip-body"><p class="empty">Loading the calculator…</p></div></aside>
 </div>
 <div class="result-bar off" id="result-bar" hidden><div><span class="rb-k"></span><span class="rb-v"></span></div><a href="#result">See details</a></div>
 <div class="article">
+<p class="intro">Add your courses with their credit hours and grades to get your semester GPA. Enter your current CGPA too, and you'll see your new CGPA.</p>
 
 <h2>How GPA is calculated</h2>
 <p>Each grade carries grade points. Multiply each course's grade points by its credit hours to get quality points, add them up, and divide by the total credit hours.</p>
@@ -83,6 +83,6 @@
 </div>
 <div class="legal"><p>© 2026 PakCalculators</p><button type="button" class="theme-toggle" id="theme-toggle">Dark mode</button></div>
 </div></footer>
-<script src="/assets/common.js?v=3" defer></script><script src="/assets/tools/cgpa.js?v=3" defer></script>
+<script src="/assets/common.js?v=4" defer></script><script src="/assets/tools/cgpa.js?v=4" defer></script>
 </body>
 </html>
