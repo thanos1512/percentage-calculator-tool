@@ -1,2 +1,6 @@
 scripts/
 README.md
+_headers
+_redirects
+.assetsignore
+wrangler.jsonc

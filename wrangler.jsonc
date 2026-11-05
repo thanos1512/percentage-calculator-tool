@@ -1,0 +1,10 @@
+{
+  // Cloudflare Workers static site: serves the repo's HTML files directly
+  "name": "pakcalculators",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}

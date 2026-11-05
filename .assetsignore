@@ -1,0 +1,11 @@
+.git
+.gitignore
+.vercelignore
+.assetsignore
+scripts
+__pycache__
+README.md
+LICENSE
+vercel.json
+wrangler.jsonc
+node_modules
